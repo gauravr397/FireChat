@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">message</string>
     <string name="log_in">Log In</string>
+    <string name="add_image">add_image</string>
 </resources>

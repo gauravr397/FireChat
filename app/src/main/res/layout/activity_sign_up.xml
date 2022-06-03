@@ -35,6 +35,25 @@
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"/>
+        <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:id="@+id/imageProfile"
+            android:background="@drawable/backgroun_image"
+            android:scaleType="centerCrop"
+            app:riv_oval="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="add image"
+
+
+    </FrameLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,15 +62,7 @@
             android:text="Email"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_13sdp"/>
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp">
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:background=""
-        </FrameLayout>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
@@ -102,7 +113,7 @@
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
-            android:id="@+id/buttonSignIn"
+            android:id="@+id/buttoUp"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="LOG IN"
             android:textColor="@color/white"
