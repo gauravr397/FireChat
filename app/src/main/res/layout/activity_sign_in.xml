@@ -35,14 +35,15 @@
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_30sdp"
             android:layout_gravity="left"
+            android:layout_marginTop="@dimen/_44sdp"
             android:text="Email"
             android:textColor="@color/primary_text"
-            android:textSize="@dimen/_13sdp"/>
+            android:textSize="@dimen/_13sdp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"

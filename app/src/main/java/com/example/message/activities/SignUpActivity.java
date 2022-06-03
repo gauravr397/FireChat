@@ -20,7 +20,6 @@ public class SignUpActivity extends AppCompatActivity {
         setListeners();
     }
     private void setListeners(){
-            binding.textSignIn.setOnClickListener(v ->
-                startActivity(new Intent(getApplicationContext(),SignUpActivity.class)));
+            binding.textSignIn.setOnClickListener(v -> onBackPressed());
     }
 }
