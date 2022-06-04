@@ -25,6 +25,11 @@ public class SignUpActivity extends AppCompatActivity {
     }
     private void setListeners(){
             binding.textSignIn.setOnClickListener(v -> onBackPressed());
+            binding.buttonSignUp.setOnClickListener(v -> {
+                if(isValidSignUpDetails()){
+                    signUp();
+                }
+            });
     }
     private void showToast(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
@@ -45,6 +50,17 @@ public class SignUpActivity extends AppCompatActivity {
         }else if(!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches()){
             showToast("Enter Valid Email");
             return false;
+        }else if(binding.inputPassword.getText().toString().trim().isEmpty()){
+            showToast("Enter password");
+            return false;
+        }else if(binding.inputConfirmPassword.getText().toString().isEmpty()){
+            showToast("Confirm Password");
+            return false;
+        }else if(!binding.inputPassword.getText().toString().equals(binding.inputConfirmPassword.getText().toString())){
+            showToast("Password does not match");
+            return false;
+        }else {
+            return true;
         }
     }
 }
