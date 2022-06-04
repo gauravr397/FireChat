@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.util.Patterns;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.message.R;
@@ -62,5 +63,15 @@ public class SignUpActivity extends AppCompatActivity {
         }else {
             return true;
         }
+    }
+    private void loading(Boolean isLoading){
+        if(isLoading){
+            binding.buttonSignUp.setVisibility(View.INVISIBLE);
+            binding.progressbar.setVisibility(View.VISIBLE);
+        }else{
+            binding.progressbar.setVisibility(View.INVISIBLE);
+            binding.buttonSignUp.setVisibility(View.VISIBLE);
+        }
+
     }
 }
