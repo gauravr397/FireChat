@@ -115,22 +115,35 @@
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_13sdp"/>
 
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_30sdp"
+    android:animateLayoutChanges="true">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:id="@+id/buttonSignUp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="SIGN UP"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_13sdp"
-            android:textStyle="bold"
-            app:cornerRadius="@dimen/_100sdp"
-            app:backgroundTint="@color/primary"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:id="@+id/buttonSignUp"
+        android:text="SIGN UP"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/_100sdp"
+        app:backgroundTint="@color/primary"/>
+    <ProgressBar
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:id="@+id/progressbar"/>
+
+</FrameLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:text="Already have an account?"
             android:textColor="@color/primary"
             android:textSize="@dimen/_13sdp"/>
