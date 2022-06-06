@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.util.Base64;
@@ -68,14 +69,15 @@ public class SignUpActivity extends AppCompatActivity {
                             InputStream inputStream = getContentResolver().openInputStream(imageUri);
                             Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                             binding.imageProfile.setImageBitmap(bitmap);
-
+                            binding.textAddImage.setVisibility(View.GONE);
+                            encodedImage = encodeImage(bitmap);
                         }catch (FileNotFoundException e){
                             e.printStackTrace();
                         }
                     }
                 }
             }
-    )
+    );
 
     private Boolean isValidSignUpDetails(){
         if(encodedImage==null) {
