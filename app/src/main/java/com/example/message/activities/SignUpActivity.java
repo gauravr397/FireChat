@@ -1,9 +1,12 @@
 package com.example.message.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.util.Base64;
@@ -17,6 +20,8 @@ import com.example.message.databinding.ActivitySignUpBinding;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class SignUpActivity extends AppCompatActivity {
     private ActivitySignUpBinding binding;
@@ -43,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void signUp(){
 
     }
-    public String encodeImage(Bitmap bitmap){
+    private String encodeImage(Bitmap bitmap){
         int previewWidth =150;
         int previewHeight = bitmap.getHeight()*previewWidth/bitmap.getWidth();
         Bitmap previewBitmap = Bitmap.createScaledBitmap(bitmap, previewWidth,previewHeight,false);
@@ -53,7 +58,24 @@ public class SignUpActivity extends AppCompatActivity {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
+    private final ActivityResultLauncher<Intent> pickImage = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK){
+                    if (result.getData() != null){
+                        Uri imageUri = result.getData().getData();
+                        try{
+                            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                            binding.imageProfile.setImageBitmap(bitmap);
 
+                        }catch (FileNotFoundException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+    )
 
     private Boolean isValidSignUpDetails(){
         if(encodedImage==null) {
