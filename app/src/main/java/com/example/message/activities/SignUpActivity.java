@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.PatternMatcher;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
@@ -41,6 +42,10 @@ public class SignUpActivity extends AppCompatActivity {
                 if(isValidSignUpDetails()){
                     signUp();
                 }
+            });
+            binding.layoutImage.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                pickImage.launch(intent);
             });
     }
     private void showToast(String message){
