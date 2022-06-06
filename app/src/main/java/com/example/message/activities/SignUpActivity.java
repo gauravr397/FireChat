@@ -19,11 +19,14 @@ import android.widget.Toast;
 import com.example.message.R;
 import com.example.message.databinding.ActivitySignInBinding;
 import com.example.message.databinding.ActivitySignUpBinding;
+import com.example.message.utilities.Constants;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
     private ActivitySignUpBinding binding;
@@ -52,7 +55,21 @@ public class SignUpActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
     private void signUp(){
+        loading(true);
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        HashMap<String, Object> user = new HashMap<>();
+        user.put(Constants.KEY_NAME, binding.inputName.getText().toString());
+        user.put(Constants.KEY_EMAIL, binding.inputEmail.getText().toString());
+        user.put(Constants.KEY_PSSWORD, binding.inputPassword.getText().toString());
+        user.put(Constants.KEY_IMAGE, encodedImage);
+        database.collection(Constants.KEY_COLLECTION_USERS)
+                .add(user)
+                .addOnSuccessListener(documentReference -> {
 
+                })
+                .addOnFailureListener(exception -> {
+
+                });
     }
     private String encodeImage(Bitmap bitmap){
         int previewWidth =150;
