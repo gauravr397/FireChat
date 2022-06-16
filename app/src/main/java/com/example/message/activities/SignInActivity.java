@@ -35,12 +35,13 @@ import com.example.message.databinding.ActivitySignInBinding;
 
 public class SignInActivity extends AppCompatActivity {
     private ActivitySignInBinding binding;
-
+    private PreferenceManager preferenceManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        preferenceManager = new PreferenceManager(getApplicationContext());
         setListeners();
     }
     private void setListeners(){
