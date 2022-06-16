@@ -21,6 +21,7 @@ import com.example.message.databinding.ActivitySignInBinding;
 import com.example.message.databinding.ActivitySignUpBinding;
 import com.example.message.utilities.Constants;
 import com.example.message.utilities.PreferenceManager;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.ByteArrayInputStream;
@@ -54,7 +55,23 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
     private void signIn(){
+        loading(true);
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        database.collection(Constants.KEY_EMAIL, binding.inputEmail.getText().toString())
+                .whereEqualTo(Constants.KEY_PSSWORD, binding.inputPassword.getText().toString())
+                .get()
+                .addOnCompleteListener(task -> {
+                        if{task.isSuccessful() && task.getResult() != null
+                            && task.getResult().getDocuments().size() > 0){
+                            DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
+                            preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
+                            preferenceManager.putString(Constants.KEY_USER_ID, documentSnapshot.getId());
+                            preferenceManager.putString(Constants.KEY_NAME, documentSnapshot.getString(Constants.KEY_NAME));
+                            preferenceManager.putString(Constants.KEY_IMAGE, documentSnapshot.getString(Constants.KEY_IMAGE));
 
+
+                    }
+                        });
     }
 
     private void loading(Boolean isLoading){
