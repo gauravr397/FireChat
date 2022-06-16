@@ -46,8 +46,15 @@ public class SignInActivity extends AppCompatActivity {
     private void setListeners(){
         binding.textCreateNewAccount.setOnClickListener(v ->
                 startActivity(new Intent(getApplicationContext(),SignUpActivity.class)));
+        binding.buttonSignIn.setOnClickListener(v -> {
+            if(isValidSignUpDetails()){
+                signIn();
+            }
+        });
     }
+    private void signIn(){
 
+    }
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
