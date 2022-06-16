@@ -55,6 +55,17 @@ public class SignInActivity extends AppCompatActivity {
     private void signIn(){
 
     }
+
+    private void loading(Boolean isLoading){
+        if(isLoading){
+            binding.buttonSignIn.setVisibility(View.INVISIBLE);
+            binding.progressbar.setVisibility(View.VISIBLE);
+        }else{
+            binding.progressbar.setVisibility(View.INVISIBLE);
+            binding.buttonSignIn.setVisibility(View.VISIBLE);
+        }
+
+    }
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
