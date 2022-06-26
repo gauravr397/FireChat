@@ -35,4 +35,22 @@
         app:layout_constraintBaseline_toTopOf="parent"
         android:tint="@color/white"/>
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+        app:layout_constraintEnd_toStartOf="@+id/imageSignOut"
+        app:layout_constraintEnd_toEndOf="@+id/imageProfile"
+        app:layout_constraintBaseline_toTopOf="@id/imageProfile"/>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
