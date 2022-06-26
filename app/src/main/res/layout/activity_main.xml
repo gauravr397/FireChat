@@ -15,12 +15,24 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
-        android:background="@color/icon_background"
+        android:background="@drawable/background_icon"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintBaseline_toTopOf="parent"
         app:riv_corner_radius="@dimen/_8sdp"/>
 
-
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/imageSignOut"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:background="@drawable/background_icon"
+        android:padding="@dimen/_6sdp"
+        android:src="@drawable/ic_logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toTopOf="parent"
+        android:tint="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
